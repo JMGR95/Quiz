@@ -32,31 +32,65 @@ class MainActivity : AppCompatActivity() {
         //falseButton = findViewById(R.id.false_button)
 
         binding.trueButton.setOnClickListener { view: View ->
-            val mySnack= Snackbar.make(view, R.string.correct_toast, Snackbar.LENGTH_LONG)
+            /*val mySnack= Snackbar.make(view, R.string.correct_toast, Snackbar.LENGTH_LONG)
             mySnack.setBackgroundTint(resources.getColor(R.color.verde))
-            mySnack.show()
+            mySnack.show()*/
             /*Toast.makeText(
                 this,
                 R.string.correct_toast,
                 Toast.LENGTH_SHORT
             ).show()*/
+            checkAnswer(true, view)
         }
 
         binding.falseButton.setOnClickListener { view: View ->
-            // Haz algo en respuesta al hacer click aqui
-            val mySnack= Snackbar.make(view, R.string.incorrect_toast, Snackbar.LENGTH_LONG)
+            /*val mySnack= Snackbar.make(view, R.string.incorrect_toast, Snackbar.LENGTH_LONG)
             mySnack.setBackgroundTint(resources.getColor(R.color.rojo))
-            mySnack.show()
+            mySnack.show()*/
             /*Toast.makeText(
                 this,
                 R.string.incorrect_toast,
                 Toast.LENGTH_SHORT
             ).show()*/
+            checkAnswer(false, view)
         }
 
+        binding.nextButton.setOnClickListener {
+            currentIndex = (currentIndex + 1) % questionBank.size
+            //val preguntaTextResId = questionBank[currentIndex].textoPregunta
+            //binding.questionTextview.setText(preguntaTextResId)
+            updateQuestion()
+        }
+
+        //val preguntaTextResId = questionBank[currentIndex].textoPregunta
+        //binding.questionTextview.setText(preguntaTextResId)
+        updateQuestion()
+    }
+
+    private fun updateQuestion(){
         val preguntaTextResId = questionBank[currentIndex].textoPregunta
         binding.questionTextview.setText(preguntaTextResId)
-
-
     }
+
+    private fun checkAnswer(userAnswer: Boolean, view : View){
+        val correctAnswer = questionBank[currentIndex].respuesta
+
+        val messageResId = if (userAnswer == correctAnswer) {
+            R.string.correct_toast
+
+        } else {
+            R.string.incorrect_toast
+
+        }
+        val colorBackground = if(userAnswer == correctAnswer){
+            R.color.verde
+        } else {
+            R.color.rojo
+        }
+
+        val mySnack= Snackbar.make(view, R.string.correct_toast, Snackbar.LENGTH_LONG)
+        mySnack.setBackgroundTint(getColor(colorBackground))
+        mySnack.show()
+    }
+
 }
