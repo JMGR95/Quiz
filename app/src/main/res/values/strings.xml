@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Quiz</string>
+    <string name="pregunta">El chocolate es caro</string>
+    <string name="pregunta2">xd</string>
+    <string name="pregunta3">dx</string>
+    <string name="pregunta4">xxdx</string>
+    <string name="true_button">True</string>
+    <string name="false_button">False</string>
+    <string name="correct_toast">Correcto!</string>
+    <string name="incorrect_toast">Incorrecto!</string>
+    <string name="next_button">Next</string>
+
+</resources>
