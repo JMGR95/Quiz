@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">Quiz</string>
-    <string name="pregunta">El chocolate es caro</string>
-    <string name="pregunta2">Cielo azul</string>
-    <string name="pregunta3">Pared blanca</string>
-    <string name="pregunta4">Paleta roja</string>
+    <string name="pregunta">¿Aang es un maestro aire?</string>
+    <string name="pregunta2">¿La nación del fuego, gano la guerra?</string>
+    <string name="pregunta3">¿Toph es ciega?</string>
+    <string name="pregunta4">¿Murió el señor del fuego Ozai?</string>
     <string name="true_button">True</string>
     <string name="false_button">False</string>
     <string name="correct_toast">Correcto!</string>
