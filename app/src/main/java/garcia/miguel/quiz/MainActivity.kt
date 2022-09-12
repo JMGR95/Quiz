@@ -10,6 +10,9 @@ import android.widget.Toast
 import com.google.android.material.snackbar.Snackbar
 import garcia.miguel.quiz.databinding.ActivityMainBinding
 
+
+//xd
+
 private const val TAG = "MainActivity"
 
 class MainActivity : AppCompatActivity() {
