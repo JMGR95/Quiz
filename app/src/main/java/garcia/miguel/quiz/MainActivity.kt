@@ -12,9 +12,8 @@ import com.google.android.material.snackbar.Snackbar
 import garcia.miguel.quiz.databinding.ActivityMainBinding
 
 
-//xd
-//a
 private const val TAG = "MainActivity"
+const val CURRENT_INDEX_KEY = "CURRENT_INDEX_KEY"
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -24,6 +23,7 @@ class MainActivity : AppCompatActivity() {
     //private lateinit var trueButton: Button
     //private lateinit var falseButton: Button
 
+    /*
     private val questionBank = listOf(
         Pregunta(R.string.pregunta, true),
         Pregunta(R.string.pregunta2, false),
@@ -32,6 +32,7 @@ class MainActivity : AppCompatActivity() {
     )
 
     private var currentIndex:Int = 0
+     */
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -67,9 +68,10 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.nextButton.setOnClickListener {
-            currentIndex = (currentIndex + 1) % questionBank.size
+            //currentIndex = (currentIndex + 1) % questionBank.size
             //val preguntaTextResId = questionBank[currentIndex].textoPregunta
             //binding.questionTextview.setText(preguntaTextResId)
+            quizViewModel.moveToNext()
             updateQuestion()
         }
 
@@ -104,12 +106,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun updateQuestion(){
-        val preguntaTextResId = questionBank[currentIndex].textoPregunta
+        //val preguntaTextResId = questionBank[currentIndex].textoPregunta
+        val preguntaTextResId = quizViewModel.currentQuestionText
         binding.questionTextview.setText(preguntaTextResId)
     }
 
     private fun checkAnswer(userAnswer: Boolean, view : View){
-        val correctAnswer = questionBank[currentIndex].respuesta
+        //val correctAnswer = questionBank[currentIndex].respuesta
+        val correctAnswer = quizViewModel.currentQuestionAnswer
 
         val messageResId = if (userAnswer == correctAnswer) {
             R.string.correct_toast
