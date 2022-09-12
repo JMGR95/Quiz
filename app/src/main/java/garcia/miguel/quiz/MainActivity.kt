@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.Toast
+import androidx.activity.viewModels
 import com.google.android.material.snackbar.Snackbar
 import garcia.miguel.quiz.databinding.ActivityMainBinding
 
@@ -14,6 +15,8 @@ private const val TAG = "MainActivity"
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+
+    private val quizViewModel: QuizViewModel by viewModels()
 
     //private lateinit var trueButton: Button
     //private lateinit var falseButton: Button
@@ -29,7 +32,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.d(TAG, "onCreate(Bundle?) called")
+        Log.d(TAG, "Got a QuizViewModel: $quizViewModel")
         //setContentView(R.layout.activity_main)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
