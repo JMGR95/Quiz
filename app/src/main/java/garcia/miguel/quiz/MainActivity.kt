@@ -12,7 +12,7 @@ import garcia.miguel.quiz.databinding.ActivityMainBinding
 
 
 //xd
-
+//a
 private const val TAG = "MainActivity"
 
 class MainActivity : AppCompatActivity() {
